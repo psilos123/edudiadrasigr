@@ -41,7 +41,7 @@ export function Hero({
       </div>
 
       {/* Grid pattern overlay */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="mx-auto max-w-4xl text-center">
@@ -96,7 +96,7 @@ export function Hero({
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="h-14 w-full rounded-full border-border bg-transparent px-8 text-lg font-medium text-foreground backdrop-blur-sm transition-all hover:border-accent hover:bg-accent hover:text-background sm:w-auto"
+                    className="h-14 w-full rounded-full border-border bg-white px-8 text-lg font-medium text-foreground shadow-sm transition-all hover:border-accent hover:bg-accent hover:text-white sm:w-auto"
                   >
                     {secondaryCTA.label}
                   </Button>

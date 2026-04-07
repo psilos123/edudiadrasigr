@@ -1,18 +1,22 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Phone, Mail, MapPin } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/50 bg-background">
+    <footer className="border-t border-border bg-secondary/30">
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
-                <span className="text-lg font-bold text-white">E</span>
-              </div>
-              <span className="text-xl font-bold text-foreground">EduDiadrasi</span>
+            <Link href="/" className="flex items-center">
+              <Image 
+                src="/images/logo.jpg" 
+                alt="Διάδραση - Πρότυπο Μαθητικό Σπουδαστήριο" 
+                width={150} 
+                height={50} 
+                className="h-12 w-auto object-contain"
+              />
             </Link>
             <p className="text-sm leading-relaxed text-muted-foreground">
               Φροντιστήριο Μέσης Εκπαίδευσης με εξατομικευμένη προσέγγιση και υψηλά ποσοστά επιτυχίας.
@@ -119,7 +123,7 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border/50 pt-8 md:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} EduDiadrasi. Με επιφύλαξη παντός δικαιώματος.
           </p>

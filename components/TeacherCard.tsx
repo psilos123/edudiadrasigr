@@ -26,7 +26,7 @@ export function TeacherCard({
     .slice(0, 2)
 
   return (
-    <div className={cn("group relative overflow-hidden rounded-3xl border border-border/50 bg-card/50 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-card", className)}>
+    <div className={cn("group relative overflow-hidden rounded-3xl border border-border bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg", className)}>
       {/* Story-style avatar ring */}
       <div className="story-ring mx-auto h-24 w-24 p-[3px]">
         <div className="story-ring-inner h-full w-full">
@@ -53,7 +53,7 @@ export function TeacherCard({
             <Badge 
               key={index} 
               variant="secondary" 
-              className="rounded-full border-0 bg-secondary/80 px-3 py-1 text-xs font-medium"
+              className="rounded-full border-0 bg-secondary px-3 py-1 text-xs font-medium"
             >
               {subject}
             </Badge>

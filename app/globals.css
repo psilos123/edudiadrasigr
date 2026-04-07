@@ -3,81 +3,81 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* TikTok/Instagram inspired dark theme */
+/* TikTok/Instagram inspired light theme with brand colors */
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --card: #121212;
-  --card-foreground: #ffffff;
-  --popover: #121212;
-  --popover-foreground: #ffffff;
-  --primary: #FE2C55;
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #E53935;
   --primary-foreground: #ffffff;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #ffffff;
-  --muted: #1a1a1a;
-  --muted-foreground: #a0a0a0;
-  --accent: #25F4EE;
-  --accent-foreground: #000000;
-  --destructive: #FE2C55;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #1a1a1a;
+  --muted: #f5f5f5;
+  --muted-foreground: #6b7280;
+  --accent: #3CB7AD;
+  --accent-foreground: #ffffff;
+  --destructive: #E53935;
   --destructive-foreground: #ffffff;
-  --border: #262626;
-  --input: #262626;
-  --ring: #FE2C55;
-  --chart-1: #FE2C55;
-  --chart-2: #25F4EE;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #3CB7AD;
+  --chart-1: #E53935;
+  --chart-2: #3CB7AD;
   --chart-3: #FFD60A;
   --chart-4: #69C9D0;
   --chart-5: #EE1D52;
   --radius: 1rem;
-  --sidebar: #0a0a0a;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #FE2C55;
+  --sidebar: #fafafa;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #E53935;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1a1a1a;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #262626;
-  --sidebar-ring: #FE2C55;
+  --sidebar-accent: #f5f5f5;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #3CB7AD;
   
-  /* Custom social gradients */
-  --gradient-primary: linear-gradient(135deg, #FE2C55 0%, #25F4EE 100%);
-  --gradient-accent: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%);
-  --gradient-story: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  /* Custom social gradients with brand colors */
+  --gradient-primary: linear-gradient(135deg, #E53935 0%, #3CB7AD 100%);
+  --gradient-accent: linear-gradient(135deg, #3CB7AD 0%, #E53935 100%);
+  --gradient-story: linear-gradient(45deg, #3CB7AD 0%, #2dd4bf 25%, #E53935 50%, #f87171 75%, #3CB7AD 100%);
 }
 
 .dark {
-  --background: #000000;
-  --foreground: #ffffff;
-  --card: #121212;
-  --card-foreground: #ffffff;
-  --popover: #121212;
-  --popover-foreground: #ffffff;
-  --primary: #FE2C55;
+  --background: #0f0f0f;
+  --foreground: #fafafa;
+  --card: #1a1a1a;
+  --card-foreground: #fafafa;
+  --popover: #1a1a1a;
+  --popover-foreground: #fafafa;
+  --primary: #E53935;
   --primary-foreground: #ffffff;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #ffffff;
-  --muted: #1a1a1a;
+  --secondary: #262626;
+  --secondary-foreground: #fafafa;
+  --muted: #262626;
   --muted-foreground: #a0a0a0;
-  --accent: #25F4EE;
-  --accent-foreground: #000000;
-  --destructive: #FE2C55;
+  --accent: #3CB7AD;
+  --accent-foreground: #ffffff;
+  --destructive: #E53935;
   --destructive-foreground: #ffffff;
-  --border: #262626;
-  --input: #262626;
-  --ring: #FE2C55;
-  --chart-1: #FE2C55;
-  --chart-2: #25F4EE;
+  --border: #333333;
+  --input: #333333;
+  --ring: #3CB7AD;
+  --chart-1: #E53935;
+  --chart-2: #3CB7AD;
   --chart-3: #FFD60A;
   --chart-4: #69C9D0;
   --chart-5: #EE1D52;
-  --sidebar: #0a0a0a;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #FE2C55;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #fafafa;
+  --sidebar-primary: #E53935;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1a1a1a;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #262626;
-  --sidebar-ring: #FE2C55;
+  --sidebar-accent: #262626;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-border: #333333;
+  --sidebar-ring: #3CB7AD;
 }
 
 @theme inline {
@@ -166,11 +166,11 @@
   }
   
   .glow-primary {
-    box-shadow: 0 0 20px rgba(254, 44, 85, 0.3);
+    box-shadow: 0 0 20px rgba(229, 57, 53, 0.3);
   }
   
   .glow-accent {
-    box-shadow: 0 0 20px rgba(37, 244, 238, 0.3);
+    box-shadow: 0 0 20px rgba(60, 183, 173, 0.3);
   }
   
   .text-gradient {
@@ -190,6 +190,6 @@
   .card-social:hover {
     border-color: var(--primary);
     transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(254, 44, 85, 0.15);
+    box-shadow: 0 8px 30px rgba(229, 57, 53, 0.15);
   }
 }

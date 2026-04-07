@@ -84,9 +84,9 @@ export function InterestForm({
   // Prevent hydration mismatch from browser extensions like LastPass
   if (!mounted) {
     return (
-      <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/50 p-8 backdrop-blur-sm md:p-10">
-        <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-primary/20 blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
+      <div className="relative overflow-hidden rounded-3xl border border-border bg-white p-8 shadow-xl md:p-10">
+        <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-accent/10 blur-3xl" />
         <div className="relative mb-8 text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2">
             <Sparkles className="h-4 w-4 text-primary" />
@@ -105,10 +105,10 @@ export function InterestForm({
   }
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/50 p-8 backdrop-blur-sm md:p-10">
+    <div className="relative overflow-hidden rounded-3xl border border-border bg-white p-8 shadow-xl md:p-10">
       {/* Decorative gradient */}
-      <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-primary/20 blur-3xl" />
-      <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
+      <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
+      <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-accent/10 blur-3xl" />
       
       {(title || description) && (
         <div className="relative mb-8 text-center">
@@ -131,7 +131,7 @@ export function InterestForm({
               <Input
                 id="firstName"
                 placeholder="Γιάννης"
-                className="h-12 rounded-xl border-border/50 bg-secondary/50 backdrop-blur-sm focus:border-primary focus:ring-primary"
+                className="h-12 rounded-xl border-border bg-secondary focus:border-primary focus:ring-primary"
                 {...register("firstName")}
               />
               {errors.firstName && (
@@ -143,7 +143,7 @@ export function InterestForm({
               <Input
                 id="lastName"
                 placeholder="Παπαδόπουλος"
-                className="h-12 rounded-xl border-border/50 bg-secondary/50 backdrop-blur-sm focus:border-primary focus:ring-primary"
+                className="h-12 rounded-xl border-border bg-secondary focus:border-primary focus:ring-primary"
                 {...register("lastName")}
               />
               {errors.lastName && (
@@ -159,7 +159,7 @@ export function InterestForm({
                 id="email"
                 type="email"
                 placeholder="email@example.com"
-                className="h-12 rounded-xl border-border/50 bg-secondary/50 backdrop-blur-sm focus:border-primary focus:ring-primary"
+                className="h-12 rounded-xl border-border bg-secondary focus:border-primary focus:ring-primary"
                 {...register("email")}
               />
               {errors.email && <FieldError>{errors.email.message}</FieldError>}
@@ -170,7 +170,7 @@ export function InterestForm({
                 id="phone"
                 type="tel"
                 placeholder="69xxxxxxxx"
-                className="h-12 rounded-xl border-border/50 bg-secondary/50 backdrop-blur-sm focus:border-primary focus:ring-primary"
+                className="h-12 rounded-xl border-border bg-secondary focus:border-primary focus:ring-primary"
                 {...register("phone")}
               />
               {errors.phone && <FieldError>{errors.phone.message}</FieldError>}
@@ -183,10 +183,10 @@ export function InterestForm({
               value={selectedProgram}
               onValueChange={(value) => setValue("program", value)}
             >
-              <SelectTrigger className="h-12 rounded-xl border-border/50 bg-secondary/50 backdrop-blur-sm focus:border-primary focus:ring-primary">
+              <SelectTrigger className="h-12 rounded-xl border-border bg-secondary focus:border-primary focus:ring-primary">
                 <SelectValue placeholder="Επιλέξτε πρόγραμμα" />
               </SelectTrigger>
-              <SelectContent className="rounded-xl border-border/50 bg-card">
+              <SelectContent className="rounded-xl border-border bg-white">
                 {programs.map((program) => (
                   <SelectItem key={program.value} value={program.value} className="rounded-lg">
                     {program.label}
@@ -203,7 +203,7 @@ export function InterestForm({
               id="message"
               placeholder="Γράψτε το μήνυμά σας..."
               rows={4}
-              className="rounded-xl border-border/50 bg-secondary/50 backdrop-blur-sm focus:border-primary focus:ring-primary"
+              className="rounded-xl border-border bg-secondary focus:border-primary focus:ring-primary"
               {...register("message")}
             />
           </Field>

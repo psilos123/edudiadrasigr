@@ -24,7 +24,7 @@ export function ProgramCard({
   return (
     <div
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/50 hover:bg-card hover:scale-[1.02]",
+        "group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-white shadow-sm transition-all duration-500 hover:border-primary/50 hover:shadow-lg hover:scale-[1.02]",
         className
       )}
     >
@@ -60,7 +60,7 @@ export function ProgramCard({
           <Link href={href}>
             <Button
               variant="ghost"
-              className="group/btn w-full justify-between rounded-full bg-secondary/50 text-foreground hover:bg-primary hover:text-primary-foreground"
+              className="group/btn w-full justify-between rounded-full bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground"
             >
               <span className="font-medium">Μάθε περισσότερα</span>
               <ChevronRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />

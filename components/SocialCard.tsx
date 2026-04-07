@@ -19,9 +19,9 @@ export function SocialCard({
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-card",
+        "group relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg",
         variant === "highlight" && "border-primary/30 bg-primary/5",
-        variant === "muted" && "bg-secondary/50",
+        variant === "muted" && "bg-secondary",
         className
       )}
     >

@@ -54,7 +54,7 @@ export function SuccessBlock({
             return (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/50 p-8 text-center backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-card"
+                className="group relative overflow-hidden rounded-3xl border border-border bg-white p-8 text-center shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg"
               >
                 {/* Animated background */}
                 <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/0 to-accent/0 opacity-0 transition-opacity duration-300 group-hover:opacity-10" />

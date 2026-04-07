@@ -26,11 +26,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
-            <span className="text-lg font-bold text-white">E</span>
-          </div>
-          <span className="hidden text-xl font-bold text-foreground sm:inline">EduDiadrasi</span>
+        <Link href="/" className="flex items-center">
+          <Image 
+            src="/images/logo.jpg" 
+            alt="Διάδραση - Πρότυπο Μαθητικό Σπουδαστήριο" 
+            width={180} 
+            height={60} 
+            className="h-12 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -72,11 +76,14 @@ export function Header() {
           </SheetTrigger>
           <SheetContent side="right" className="w-72 border-border/50 bg-background">
             <div className="flex flex-col gap-6 pt-6">
-              <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
-                  <span className="text-lg font-bold text-white">E</span>
-                </div>
-                <span className="text-xl font-bold text-foreground">EduDiadrasi</span>
+              <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
+                <Image 
+                  src="/images/logo.jpg" 
+                  alt="Διάδραση - Πρότυπο Μαθητικό Σπουδαστήριο" 
+                  width={160} 
+                  height={50} 
+                  className="h-10 w-auto object-contain"
+                />
               </Link>
               <nav className="flex flex-col gap-1">
                 {navLinks.map((link) => (

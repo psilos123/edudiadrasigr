@@ -46,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="el" className={`${inter.variable} ${geistMono.variable} dark`}>
+    <html lang="el" className={`${inter.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased bg-background text-foreground">
         <div className="flex min-h-screen flex-col">
           <Header />
