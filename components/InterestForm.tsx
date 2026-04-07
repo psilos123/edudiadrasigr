@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -43,6 +44,8 @@ export function InterestForm({
   description = "Συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσουμε μαζί σου σύντομα.",
   defaultProgram,
 }: InterestFormProps) {
+  const [mounted, setMounted] = useState(false)
+  
   const {
     register,
     handleSubmit,
@@ -64,6 +67,10 @@ export function InterestForm({
 
   const selectedProgram = watch("program")
 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const onSubmit = async (data: FormData) => {
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -72,6 +79,29 @@ export function InterestForm({
       description: "Θα επικοινωνήσουμε μαζί σου σύντομα.",
     })
     reset()
+  }
+
+  // Prevent hydration mismatch from browser extensions like LastPass
+  if (!mounted) {
+    return (
+      <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/50 p-8 backdrop-blur-sm md:p-10">
+        <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-primary/20 blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
+        <div className="relative mb-8 text-center">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2">
+            <Sparkles className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium text-primary">Εγγραφή</span>
+          </div>
+          {title && <h3 className="text-2xl font-bold text-foreground">{title}</h3>}
+          {description && (
+            <p className="mt-2 text-muted-foreground">{description}</p>
+          )}
+        </div>
+        <div className="flex items-center justify-center py-12">
+          <Spinner className="h-8 w-8 text-primary" />
+        </div>
+      </div>
+    )
   }
 
   return (

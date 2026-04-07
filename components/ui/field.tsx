@@ -45,6 +45,7 @@ function FieldGroup({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="field-group"
+      suppressHydrationWarning
       className={cn(
         'group/field-group @container/field-group flex w-full flex-col gap-7 data-[slot=checkbox-group]:gap-3 [&>[data-slot=field-group]]:gap-4',
         className,
@@ -99,6 +100,7 @@ function FieldContent({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="field-content"
+      suppressHydrationWarning
       className={cn(
         'group/field-content flex flex-1 flex-col gap-1.5 leading-snug',
         className,
