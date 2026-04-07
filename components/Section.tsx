@@ -19,21 +19,26 @@ export function Section({
   return (
     <section
       className={cn(
-        "py-16 md:py-20",
-        variant === "muted" && "bg-muted/30",
+        "relative py-20 md:py-28",
+        variant === "muted" && "bg-secondary/30",
         className
       )}
     >
+      {/* Subtle gradient overlay for muted sections */}
+      {variant === "muted" && (
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+      )}
+      
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         {(title || subtitle) && (
-          <div className="mb-12 text-center">
+          <div className="mb-14 text-center">
             {title && (
-              <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+              <h2 className="text-3xl font-black text-foreground md:text-4xl lg:text-5xl">
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="mt-3 text-muted-foreground">{subtitle}</p>
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">{subtitle}</p>
             )}
           </div>
         )}

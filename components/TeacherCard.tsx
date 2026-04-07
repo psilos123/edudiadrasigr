@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils"
-import { Card, CardContent } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
+import { Verified } from "lucide-react"
 
 interface TeacherCardProps {
   name: string
@@ -27,31 +26,58 @@ export function TeacherCard({
     .slice(0, 2)
 
   return (
-    <Card className={cn("group transition-all duration-300 hover:shadow-md", className)}>
-      <CardContent className="flex flex-col items-center p-6 text-center">
-        <Avatar className="h-20 w-20 border-2 border-primary/20">
-          {image && <AvatarImage src={image} alt={name} />}
-          <AvatarFallback className="bg-primary/10 text-lg font-semibold text-primary">
-            {initials}
-          </AvatarFallback>
-        </Avatar>
-        <h3 className="mt-4 text-lg font-semibold text-foreground">{name}</h3>
-        <p className="text-sm text-muted-foreground">{specialty}</p>
-        {subjects && subjects.length > 0 && (
-          <div className="mt-3 flex flex-wrap justify-center gap-1.5">
-            {subjects.map((subject, index) => (
-              <Badge key={index} variant="secondary" className="text-xs">
-                {subject}
-              </Badge>
-            ))}
-          </div>
-        )}
-        {description && (
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            {description}
-          </p>
-        )}
-      </CardContent>
-    </Card>
+    <div className={cn("group relative overflow-hidden rounded-3xl border border-border/50 bg-card/50 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-card", className)}>
+      {/* Story-style avatar ring */}
+      <div className="story-ring mx-auto h-24 w-24 p-[3px]">
+        <div className="story-ring-inner h-full w-full">
+          {image ? (
+            <img src={image} alt={name} className="h-full w-full rounded-full object-cover" />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-xl font-bold text-white">
+              {initials}
+            </div>
+          )}
+        </div>
+      </div>
+      
+      <div className="mt-4 flex items-center justify-center gap-1">
+        <h3 className="text-lg font-bold text-foreground">{name}</h3>
+        <Verified className="h-4 w-4 text-accent" />
+      </div>
+      
+      <p className="text-sm text-muted-foreground">@{specialty.toLowerCase().replace(/\s+/g, '_')}</p>
+      
+      {subjects && subjects.length > 0 && (
+        <div className="mt-4 flex flex-wrap justify-center gap-2">
+          {subjects.map((subject, index) => (
+            <Badge 
+              key={index} 
+              variant="secondary" 
+              className="rounded-full border-0 bg-secondary/80 px-3 py-1 text-xs font-medium"
+            >
+              {subject}
+            </Badge>
+          ))}
+        </div>
+      )}
+      
+      {description && (
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+          {description}
+        </p>
+      )}
+      
+      {/* Follow button style indicator */}
+      <div className="mt-6 flex justify-center gap-4 text-center text-sm">
+        <div>
+          <span className="font-bold text-foreground">150+</span>
+          <span className="block text-xs text-muted-foreground">Μαθητές</span>
+        </div>
+        <div>
+          <span className="font-bold text-foreground">10+</span>
+          <span className="block text-xs text-muted-foreground">Χρόνια</span>
+        </div>
+      </div>
+    </div>
   )
 }

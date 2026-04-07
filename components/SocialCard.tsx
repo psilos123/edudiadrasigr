@@ -1,6 +1,5 @@
 import { ReactNode } from "react"
 import { cn } from "@/lib/utils"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
 interface SocialCardProps {
   icon?: ReactNode
@@ -18,25 +17,28 @@ export function SocialCard({
   variant = "default",
 }: SocialCardProps) {
   return (
-    <Card
+    <div
       className={cn(
-        "group transition-all duration-300 hover:shadow-md",
-        variant === "highlight" && "border-primary/20 bg-primary/5",
-        variant === "muted" && "bg-muted/50",
+        "group relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-card",
+        variant === "highlight" && "border-primary/30 bg-primary/5",
+        variant === "muted" && "bg-secondary/50",
         className
       )}
     >
-      <CardHeader className="pb-2">
-        {icon && (
-          <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-            {icon}
-          </div>
-        )}
-        <h3 className="text-lg font-semibold text-foreground">{title}</h3>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
-      </CardContent>
-    </Card>
+      {/* Hover glow effect */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/0 via-primary/0 to-accent/0 opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
+      
+      {icon && (
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 text-primary transition-all duration-300 group-hover:scale-110 group-hover:from-primary group-hover:to-primary group-hover:text-primary-foreground group-hover:glow-primary">
+          {icon}
+        </div>
+      )}
+      
+      <h3 className="text-lg font-bold text-foreground">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+      
+      {/* Bottom accent line */}
+      <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />
+    </div>
   )
 }

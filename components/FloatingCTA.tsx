@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { MessageCircle } from "lucide-react"
+import { MessageCircle, Plus } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export function FloatingCTA() {
@@ -21,12 +21,13 @@ export function FloatingCTA() {
     <Link
       href="/contact"
       className={cn(
-        "fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-accent px-5 py-3 font-medium text-accent-foreground shadow-lg transition-all duration-300 hover:bg-accent/90 hover:shadow-xl lg:hidden",
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
+        "fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl lg:hidden",
+        "glow-primary",
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
       )}
     >
-      <MessageCircle className="h-5 w-5" />
-      <span>Ενδιαφέρον</span>
+      <Plus className="h-6 w-6 text-white" />
+      <span className="sr-only">Επικοινωνία</span>
     </Link>
   )
 }

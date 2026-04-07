@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Roboto, Geist_Mono } from 'next/font/google'
+import { Inter, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Toaster } from 'sonner'
 import { Header } from '@/components/Header'
@@ -7,10 +7,9 @@ import { Footer } from '@/components/Footer'
 import { FloatingCTA } from '@/components/FloatingCTA'
 import './globals.css'
 
-const roboto = Roboto({
+const inter = Inter({
   subsets: ['latin', 'greek'],
-  weight: ['300', '400', '500', '700'],
-  variable: '--font-roboto',
+  variable: '--font-inter',
 })
 
 const geistMono = Geist_Mono({
@@ -47,8 +46,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="el" className={`${roboto.variable} ${geistMono.variable}`}>
-      <body className="font-sans antialiased">
+    <html lang="el" className={`${inter.variable} ${geistMono.variable} dark`}>
+      <body className="font-sans antialiased bg-background text-foreground">
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>

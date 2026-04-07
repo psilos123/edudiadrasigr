@@ -1,9 +1,8 @@
 import Link from "next/link"
 import { ReactNode } from "react"
 import { cn } from "@/lib/utils"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ChevronRight } from "lucide-react"
 
 interface ProgramCardProps {
   icon?: ReactNode
@@ -23,44 +22,52 @@ export function ProgramCard({
   className,
 }: ProgramCardProps) {
   return (
-    <Card
+    <div
       className={cn(
-        "group flex h-full flex-col transition-all duration-300 hover:shadow-lg hover:border-primary/30",
+        "group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/50 hover:bg-card hover:scale-[1.02]",
         className
       )}
     >
-      <CardHeader className="pb-2">
+      {/* Top gradient accent */}
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      
+      <div className="flex flex-1 flex-col p-6">
         {icon && (
-          <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
-            {icon}
+          <div className="story-ring mb-4 h-16 w-16 p-[3px]">
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-background text-foreground">
+              {icon}
+            </div>
           </div>
         )}
-        <h3 className="text-xl font-semibold text-foreground">{title}</h3>
-      </CardHeader>
-      <CardContent className="flex flex-1 flex-col">
-        <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
+        
+        <h3 className="text-xl font-bold text-foreground">{title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+        
         {features && features.length > 0 && (
-          <ul className="mt-4 flex flex-col gap-2">
+          <ul className="mt-6 flex flex-col gap-3">
             {features.map((feature, index) => (
-              <li key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              <li key={index} className="flex items-center gap-3 text-sm text-muted-foreground">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs text-primary">
+                  {index + 1}
+                </span>
                 {feature}
               </li>
             ))}
           </ul>
         )}
+        
         <div className="mt-auto pt-6">
           <Link href={href}>
             <Button
               variant="ghost"
-              className="w-full justify-between text-primary hover:bg-primary/10 hover:text-primary"
+              className="group/btn w-full justify-between rounded-full bg-secondary/50 text-foreground hover:bg-primary hover:text-primary-foreground"
             >
-              Μάθε περισσότερα
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <span className="font-medium">Μάθε περισσότερα</span>
+              <ChevronRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
             </Button>
           </Link>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }
