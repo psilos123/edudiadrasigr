@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { ArrowRight, Sparkles } from "lucide-react"
 
 interface CTABannerProps {
   title: string
@@ -22,46 +23,47 @@ export function CTABanner({
   return (
     <section
       className={cn(
-        "py-12 md:py-16",
-        variant === "default" && "bg-primary",
-        variant === "accent" && "bg-accent",
+        "relative overflow-hidden py-16 md:py-24",
         className
       )}
     >
+      {/* Gradient background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary via-primary/90 to-accent" />
+      
+      {/* Animated glow effects */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute left-1/4 top-0 h-64 w-64 -translate-y-1/2 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 h-64 w-64 translate-y-1/2 rounded-full bg-white/10 blur-3xl" />
+      </div>
+      
+      {/* Grid pattern */}
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:32px_32px]" />
+      
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
-          <div className="max-w-xl">
-            <h2
-              className={cn(
-                "text-2xl font-bold md:text-3xl",
-                variant === "default" && "text-primary-foreground",
-                variant === "accent" && "text-accent-foreground"
-              )}
-            >
+        <div className="flex flex-col items-center gap-8 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+            <Sparkles className="h-4 w-4 text-white" />
+            <span className="text-sm font-medium text-white">Ξεκίνα σήμερα</span>
+          </div>
+          
+          <div className="max-w-2xl">
+            <h2 className="text-3xl font-black text-white md:text-4xl lg:text-5xl">
               {title}
             </h2>
             {description && (
-              <p
-                className={cn(
-                  "mt-2 text-lg",
-                  variant === "default" && "text-primary-foreground/80",
-                  variant === "accent" && "text-accent-foreground/80"
-                )}
-              >
+              <p className="mt-4 text-lg text-white/80">
                 {description}
               </p>
             )}
           </div>
+          
           <Link href={ctaHref}>
             <Button
               size="lg"
-              className={cn(
-                "shrink-0",
-                variant === "default" && "bg-background text-foreground hover:bg-background/90",
-                variant === "accent" && "bg-background text-foreground hover:bg-background/90"
-              )}
+              className="group h-14 gap-2 rounded-full bg-white px-8 text-lg font-semibold text-primary transition-all hover:bg-white/90 hover:scale-105"
             >
               {ctaLabel}
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
         </div>
