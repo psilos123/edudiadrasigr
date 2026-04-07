@@ -96,7 +96,7 @@ export function Hero({
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="h-14 w-full rounded-full border-border/50 px-8 text-lg font-medium backdrop-blur-sm hover:bg-secondary sm:w-auto"
+                    className="h-14 w-full rounded-full border-border bg-transparent px-8 text-lg font-medium text-foreground backdrop-blur-sm transition-all hover:border-accent hover:bg-accent hover:text-background sm:w-auto"
                   >
                     {secondaryCTA.label}
                   </Button>
